@@ -2,6 +2,8 @@
 
 **Last Updated: August 2026**
 
+> **Fork note:** this document is inherited from the upstream project ([ahujasid/mcp-for-blender](https://github.com/ahujasid/mcp-for-blender)) and describes *its* maintainer's (Siddharth Ahuja's) data practices, kept here for reference and attribution. This fork (`coltranesx/blender-mcp`, maintained by Korhan Ulusoy) does not ship the credentials the telemetry code needs to reach Siddharth Ahuja's backend — see the Telemetry Control section of [README.md](README.md) — so in practice no data described below is currently collected or transmitted by this fork.
+
 ---
 
 ## 1. About This Project

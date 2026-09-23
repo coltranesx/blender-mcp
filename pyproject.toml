@@ -1,11 +1,14 @@
 [project]
-name = "mcp-for-blender"
+name = "blender-mcp"
 version = "2.0.3"
-description = "Blender integration through the Model Context Protocol"
+description = "Blender integration through the Model Context Protocol. Forked from mcp-for-blender by Siddharth Ahuja."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
     {name = "Siddharth Ahuja", email = "ahujasid@gmail.com"}
+]
+maintainers = [
+    {name = "Korhan Ulusoy", email = "korhanulusoy@gmail.com"}
 ]
 license = "MIT"
 classifiers = [
@@ -18,7 +21,7 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-for-blender = "blender_mcp.server:main"
+blender-mcp = "blender_mcp.server:main"
 
 [tool.pytest.ini_options]
 python_files = ["test_*.py"]
@@ -35,5 +38,6 @@ package-dir = {"" = "src"}
 blender_mcp = ["bundled/addon.py"]
 
 [project.urls]
-"Homepage" = "https://github.com/ahujasid/blender-mcp"
-"Bug Tracker" = "https://github.com/ahujasid/blender-mcp/issues"
+"Homepage" = "https://github.com/coltranesx/blender-mcp"
+"Bug Tracker" = "https://github.com/coltranesx/blender-mcp/issues"
+"Upstream" = "https://github.com/ahujasid/mcp-for-blender"

@@ -27,13 +27,13 @@ from contextlib import contextmanager, redirect_stdout, suppress
 from bpy.app.handlers import persistent
 
 bl_info = {
-    "name": "MCP for Blender",
+    "name": "Blender MCP",
     "author": "Siddharth Ahuja",
     "version": (1, 7),
     "blender": (3, 0, 0),
-    "location": "View3D > Sidebar > MCP for Blender",
+    "location": "View3D > Sidebar > Blender MCP",
     "description": "Connect Blender to Claude via MCP",
-    "doc_url": "https://mcp-for-blender.com/",
+    "doc_url": "https://github.com/coltranesx/blender-mcp",
     "category": "Interface",
 }
 
@@ -266,7 +266,7 @@ POLYHAVEN_API_BASE = "https://api.polyhaven.com"
 POLYHAVEN_HEADERS = dict(REQ_HEADERS)
 POLYHAVEN_HEADERS["User-Agent"] = (
     "blender-mcp/" + ".".join(str(part) for part in bl_info["version"])
-    + " (+https://github.com/ahujasid/blender-mcp)"
+    + " (+https://github.com/coltranesx/blender-mcp)"
 )
 
 # (connect, read). The read timeout applies per socket read rather than to the
@@ -1567,7 +1567,7 @@ class BlenderMCPServer:
     def get_addon_info(self):
         """Version/capability handshake for the MCP server (and install tooling)."""
         return {
-            "name": bl_info.get("name", "MCP for Blender"),
+            "name": bl_info.get("name", "Blender MCP"),
             "addon_version": list(bl_info.get("version", (0, 0))),
             "protocol_version": ADDON_PROTOCOL_VERSION,
             "capabilities": sorted([
@@ -3297,7 +3297,7 @@ class BlenderMCPServer:
             return {
                 "enabled": False,
                 "message": """PolyHaven integration is currently disabled. To enable it:
-                            1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                            1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                             2. Check the 'Use assets from Poly Haven' checkbox
                             3. Restart the connection to Claude"""
         }
@@ -3312,7 +3312,7 @@ class BlenderMCPServer:
                 return {
                     "enabled": False,
                     "message": """Hyper3D Rodin integration is currently enabled, but API key is not given. To enable it:
-                                1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                                1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                                 2. Keep the 'Use Hyper3D Rodin 3D model generation' checkbox checked
                                 3. Choose the right plaform and fill in the API Key
                                 4. Restart the connection to Claude"""
@@ -3328,7 +3328,7 @@ class BlenderMCPServer:
             return {
                 "enabled": False,
                 "message": """Hyper3D Rodin integration is currently disabled. To enable it:
-                            1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                            1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                             2. Check the 'Use Hyper3D Rodin 3D model generation' checkbox
                             3. Restart the connection to Claude"""
             }
@@ -3706,7 +3706,7 @@ class BlenderMCPServer:
             return {
                 "enabled": False,
                 "message": """Sketchfab integration is currently enabled, but API key is not given. To enable it:
-                            1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                            1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                             2. Keep the 'Use Sketchfab' checkbox checked
                             3. Enter your Sketchfab API Key
                             4. Restart the connection to Claude"""
@@ -3715,7 +3715,7 @@ class BlenderMCPServer:
             return {
                 "enabled": False,
                 "message": """Sketchfab integration is currently disabled. To enable it:
-                            1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                            1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                             2. Check the 'Use assets from Sketchfab' checkbox
                             3. Enter your Sketchfab API Key
                             4. Restart the connection to Claude"""
@@ -4109,7 +4109,7 @@ class BlenderMCPServer:
                 "enabled": False,
                 "message": """Poly Pizza integration is currently enabled, but API key is not given. To enable it:
                             1. Get a free API key at https://poly.pizza/settings/api
-                            2. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                            2. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                             3. Keep the 'Use Poly Pizza' checkbox checked
                             4. Enter your Poly Pizza API Key
                             5. Restart the connection to Claude"""
@@ -4119,7 +4119,7 @@ class BlenderMCPServer:
                 "enabled": False,
                 "message": """Poly Pizza integration is currently disabled. To enable it:
                             1. Get a free API key at https://poly.pizza/settings/api
-                            2. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                            2. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                             3. Check the 'Use assets from Poly Pizza' checkbox
                             4. Enter your Poly Pizza API Key
                             5. Restart the connection to Claude"""
@@ -4432,7 +4432,7 @@ class BlenderMCPServer:
                             "enabled": False, 
                             "mode": hunyuan3d_mode, 
                             "message": """Hunyuan3D integration is currently enabled, but SecretId or SecretKey is not given. To enable it:
-                                1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                                1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                                 2. Keep the 'Use Tencent Hunyuan 3D model generation' checkbox checked
                                 3. Choose the right platform and fill in the SecretId and SecretKey
                                 4. Restart the connection to Claude"""
@@ -4443,7 +4443,7 @@ class BlenderMCPServer:
                             "enabled": False, 
                             "mode": hunyuan3d_mode, 
                             "message": """Hunyuan3D integration is currently enabled, but API URL  is not given. To enable it:
-                                1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                                1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                                 2. Keep the 'Use Tencent Hunyuan 3D model generation' checkbox checked
                                 3. Choose the right platform and fill in the API URL
                                 4. Restart the connection to Claude"""
@@ -4461,7 +4461,7 @@ class BlenderMCPServer:
         return {
             "enabled": False, 
             "message": """Hunyuan3D integration is currently disabled. To enable it:
-                        1. In the 3D Viewport, find the MCP for Blender panel in the sidebar (press N if hidden)
+                        1. In the 3D Viewport, find the Blender MCP panel in the sidebar (press N if hidden)
                         2. Check the 'Use Tencent Hunyuan 3D model generation' checkbox
                         3. Restart the connection to Claude"""
         }
@@ -4869,7 +4869,7 @@ class BLENDERMCP_AddonPreferences(bpy.types.AddonPreferences):
 
     telemetry_consent: BoolProperty(
         name="Allow Telemetry",
-        description="Opt in to collection of prompts, code snippets, screenshots, and trajectory data to help improve MCP for Blender. Off by default",
+        description="Opt in to collection of prompts, code snippets, screenshots, and trajectory data to help improve Blender MCP. Off by default",
         default=False,
         update=_on_telemetry_consent_changed,
     )
@@ -4946,11 +4946,11 @@ class BLENDERMCP_AddonPreferences(bpy.types.AddonPreferences):
 
 # Blender UI Panel
 class BLENDERMCP_PT_Panel(bpy.types.Panel):
-    bl_label = "MCP for Blender"
+    bl_label = "Blender MCP"
     bl_idname = "BLENDERMCP_PT_Panel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'MCP for Blender'
+    bl_category = 'Blender MCP'
 
     def _integration_header(self, layout, scene, prop_name, title, icon):
         """Draw an integration as a box with a checkbox header row.
@@ -5080,7 +5080,7 @@ class BLENDERMCP_OT_SetFreeTrialHyper3DAPIKey(bpy.types.Operator):
 class BLENDERMCP_OT_StartServer(bpy.types.Operator):
     bl_idname = "blendermcp.start_server"
     bl_label = "Connect to Claude"
-    bl_description = "Start the MCP for Blender server to connect with Claude"
+    bl_description = "Start the Blender MCP server to connect with Claude"
 
     def execute(self, context):
         global _user_stopped_server
@@ -5125,7 +5125,7 @@ class BLENDERMCP_OT_OpenTerms(bpy.types.Operator):
 
     def execute(self, context):
         # Open the Terms and Conditions on GitHub
-        terms_url = "https://github.com/ahujasid/blender-mcp/blob/main/TERMS_AND_CONDITIONS.md"
+        terms_url = "https://github.com/coltranesx/blender-mcp/blob/main/TERMS_AND_CONDITIONS.md"
         try:
             import webbrowser
             webbrowser.open(terms_url)
@@ -5139,7 +5139,7 @@ class BLENDERMCP_OT_OpenTerms(bpy.types.Operator):
 def register():
     bpy.types.Scene.blendermcp_port = IntProperty(
         name="Port",
-        description="Port for the MCP for Blender server",
+        description="Port for the Blender MCP server",
         default=9876,
         min=1024,
         max=65535

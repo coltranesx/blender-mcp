@@ -386,7 +386,7 @@ async def get_addon_status(ctx: Context, user_prompt: str = "") -> str:
     """
     Check whether the connected Blender addon matches this MCP server version.
 
-    If outdated, tells the user how to update via `uvx mcp-for-blender install-addon`
+    If outdated, tells the user how to update via `uvx blender-mcp install-addon`
     (then restart or re-enable the addon in Blender).
 
     `telemetry_consent` reports whether data collection is on, off, or null if
@@ -411,7 +411,7 @@ async def get_addon_status(ctx: Context, user_prompt: str = "") -> str:
             "source": result.source,
             "warning": result.warning,
             "telemetry_consent": get_telemetry().check_user_consent(),
-            "update_command": "uvx mcp-for-blender install-addon",
+            "update_command": "uvx blender-mcp install-addon",
             "after_install": (
                 "If the addon file was updated: in Blender, Preferences → Add-ons → "
                 "disable/enable 'Interface: Blender MCP', or restart Blender, then Start MCP Server."
@@ -2199,8 +2199,8 @@ def main():
             "client (Claude Desktop, Cursor, VS Code, ...), not run by hand. "
             "It will now wait silently for a client on stdin -- that is normal, "
             "not a hang. Press Ctrl-C to exit. "
-            "Setup guide: https://github.com/ahujasid/blender-mcp#installation "
-            "(if the addon is outdated this logs how to update it: uvx mcp-for-blender install-addon)"
+            "Setup guide: https://github.com/coltranesx/blender-mcp#installation "
+            "(if the addon is outdated this logs how to update it: uvx blender-mcp install-addon)"
         )
     mcp.run()
 
